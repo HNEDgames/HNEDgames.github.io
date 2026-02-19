@@ -8,14 +8,6 @@ function toBinary9(n) {
   return n.toString(2).padStart(9, "0");
 }
 
-function isValid(W) {
-  return W >= 5 && W <= 64000;
-}
-
-function isDiv5(W) {
-  return W % 5 === 0;
-}
-
 function clearDisplay(msg = "") {
   warning.innerText = msg;
   gridA.innerHTML = "";
@@ -30,10 +22,10 @@ function render(W, fromInput = false) {
     clearDisplay("⚠ 헤이헤이헤이");
     return;
   }
-  if (!isValid(W)) {
+  if (W < 5 || W > 64000) {
     clearDisplay("⚠ 5~64000 사이의 값만 입력 가능합니다.");
     return;
-  } else if (!isDiv5(W)) {
+  } else if (W % 5 !== 0) {
     clearDisplay("⚠ 5 단위로 입력해주세요.\n 모든 설비는 5단위 전력을 소모합니다.");
     return;
   }
