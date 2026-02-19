@@ -52,14 +52,14 @@ function render(W, fromInput = false) {
   gridB.appendChild(rowB);
 
   // 구역A
+
+  const n = Math.floor(inner / 5);
+  const bin = toBinary9(n);
+  binaryText.innerText = `${W} → [ ${W} % 2560 = ${inner} ] → [ ÷5 = ${n} ] → ${bin}`;
+
   if (inner === 0) {
     gridA.innerHTML = "";
   } else {
-    const n = Math.floor(inner / 5);
-
-    const bin = toBinary9(n);
-    binaryText.innerText = `${W} → (${W} % 2560 = ${inner}) → ${n} → ${bin}`;
-
     gridA.innerHTML = "";
 
     const reversed = bin.split("").reverse();
