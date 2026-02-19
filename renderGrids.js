@@ -1,3 +1,11 @@
+import gridData from "./assets/gridData.json" with { type: "json" };
+
+// fetch("./assets/gridData.json")
+//   .then((res) => res.json())
+//   .then((data) => {
+//     console.log(data);
+//   });
+
 const input = document.getElementById("valueInput");
 const binaryText = document.getElementById("binary");
 const gridA = document.getElementById("gridA");
@@ -14,8 +22,6 @@ function clearDisplay(msg = "") {
   gridB.innerHTML = "";
   binaryText.innerText = "";
 }
-
-const patterns = [["A"], ["A", "A"], ["A", "A", "A"]];
 
 function render(W, fromInput = false) {
   if (W === 1557) {
@@ -38,6 +44,7 @@ function render(W, fromInput = false) {
   // 구역B
   gridB.innerHTML = "";
 
+  const patterns = gridData.key;
   const pattern = patterns[page] || [];
 
   const rowB = document.createElement("div");
