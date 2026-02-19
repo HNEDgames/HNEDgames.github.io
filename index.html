@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>무릉 6전력 1단위 계산기</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>무릉 6전력 1단위 계산기</title>
 
-<style>
-    body {
+    <style>
+      body {
         background: #111;
         color: white;
         font-family: sans-serif;
@@ -13,262 +13,255 @@
         flex-direction: column;
         align-items: center;
         padding: 30px;
-    }
+      }
 
-    h1 {
+      h1 {
         margin-bottom: 10px;
-    }
+      }
 
-    .controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    max-width: 600px;
-}
+      .controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        max-width: 600px;
+      }
 
-.container {
-    display: flex;
-    gap: 30px;
-    margin-top: 20px;
+      .container {
+        display: flex;
+        gap: 30px;
+        margin-top: 20px;
 
-    align-items: center;
-}
+        align-items: center;
+      }
 
-/* 입력창 스타일 */
-#valueInput {
-    width: 160px;
-    padding: 10px 15px;
-    font-size: 20px;
-    text-align: center;
+      /* 입력창 스타일 */
+      #valueInput {
+        width: 160px;
+        padding: 10px 15px;
+        font-size: 20px;
+        text-align: center;
 
-    color: white;
-    background: #1a1a1a;
+        color: white;
+        background: #1a1a1a;
 
-    border: 2px solid #444;
-    border-radius: 10px;
+        border: 2px solid #444;
+        border-radius: 10px;
 
-    outline: none;
-    transition: all 0.2s;
-}
+        outline: none;
+        transition: all 0.2s;
+      }
 
-/* 포커스 효과 */
-#valueInput:focus {
-    border-color: #00c8ff;
-    box-shadow: 0 0 10px rgba(0,200,255,0.5);
-}
+      /* 포커스 효과 */
+      #valueInput:focus {
+        border-color: #00c8ff;
+        box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+      }
 
-/* 슬라이더 */
-input[type=range] {
-    width: 100%;
-    height: 100%;
-    background: #333;
-    border-radius: 3px;
-    outline: none;
-}
+      /* 슬라이더 */
+      input[type="range"] {
+        width: 100%;
+        height: 100%;
+        background: #333;
+        border-radius: 3px;
+        outline: none;
+      }
 
-input[type=range]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #00c8ff;
-    cursor: pointer;
-}
+      input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #00c8ff;
+        cursor: pointer;
+      }
 
-    #value {
+      #value {
         font-size: 28px;
         margin-bottom: 20px;
-    }
+      }
 
-    input[type=range] {
+      input[type="range"] {
         width: 400px;
-    }
+      }
 
-    #binary {
+      #binary {
         margin: 15px;
         font-size: 18px;
         color: #aaa;
-    }
+      }
 
-    .grid {
+      .grid {
         display: flex;
         flex-direction: column;
         gap: 10px;
         margin-top: 20px;
-    }
+      }
 
-    .warning{
-      color: red;
-      text-align: center;
-    }
+      .warning {
+        color: red;
+        text-align: center;
+      }
 
-    .row {
+      .row {
         display: flex;
         align-items: center;
         gap: 10px;
-    }
+      }
 
-    .icon {
+      .icon {
         width: 40px;
         height: 40px;
-    }
+      }
 
-    .A {
-        background: url('A.png') center/contain no-repeat;
-    }
-    .B {
-        background: url('B.png') center/contain no-repeat;
-    }
-    .base {
-        background: url('base.png') center/contain no-repeat;
-    }
+      .A {
+        background: url("A.png") center/contain no-repeat;
+      }
+      .B {
+        background: url("B.png") center/contain no-repeat;
+      }
+      .base {
+        background: url("base.png") center/contain no-repeat;
+      }
 
-    .r90  { transform: rotate(90deg); }
-    .r180 { transform: rotate(180deg); }
-    .r270 { transform: rotate(270deg); }
+      .r90 {
+        transform: rotate(90deg);
+      }
+      .r180 {
+        transform: rotate(180deg);
+      }
+      .r270 {
+        transform: rotate(270deg);
+      }
+    </style>
+  </head>
 
-</style>
-</head>
+  <body>
+    <h1>무릉 전력 1단위 계산기</h1>
 
-<body>
+    <div class="controls">
+      <input type="number" id="valueInput" value="5" step="5" />
+    </div>
 
-<h1>무릉 전력 1단위 계산기</h1>
+    <div id="binary"></div>
+    <div class="warning" id="warning"></div>
 
+    <div class="container">
+      <div class="grid" id="gridB"></div>
+      <div class="grid" id="gridA"></div>
+    </div>
 
-<div class="controls">
-    <input type="number" id="valueInput" value="5" step="5">
-</div>
+    <script>
+      const input = document.getElementById("valueInput");
+      const binaryText = document.getElementById("binary");
+      const gridA = document.getElementById("gridA");
+      const gridB = document.getElementById("gridB");
+      const warning = document.getElementById("warning");
 
-<div id="binary"></div>
-<div class="warning" id="warning"></div>
+      function toBinary9(n) {
+        return n.toString(2).padStart(9, "0");
+      }
 
-<div class="container">
-  <div class="grid" id="gridB"></div>
-  <div class="grid" id="gridA"></div>
-</div>
+      function isValid(W) {
+        return W >= 5 && W <= 64000;
+      }
 
-<script>
-const input = document.getElementById('valueInput');
-const binaryText = document.getElementById('binary');
-const gridA = document.getElementById('gridA');
-const gridB = document.getElementById('gridB');
-const warning = document.getElementById('warning');
+      function isDiv5(W) {
+        return W % 5 === 0;
+      }
 
-function toBinary9(n) {
-    return n.toString(2).padStart(9, '0');
-}
+      function clearDisplay(msg = "") {
+        warning.innerText = msg;
+        gridA.innerHTML = "";
+        gridB.innerHTML = "";
+        binaryText.innerText = "";
+      }
 
-function isValid(W) {
-    return W >= 5 && W <= 64000;
-}
+      const patterns = [];
 
-function isDiv5(W) {
-    return W % 5 === 0;
-}
-
-function clearDisplay(msg="") {
-    warning.innerText = msg;
-    gridA.innerHTML = "";
-    gridB.innerHTML = "";
-    binaryText.innerText = "";
-}
-
-const patterns=[
-];
-
-function render(W, fromInput=false) {
-
-    if (W === 1557){
-        clearDisplay("⚠ 헤이헤이헤이;;");
-        return;
-    }
-    if (!isValid(W)) {
-        clearDisplay("⚠ 5~64000 사이의 값만 입력 가능합니다.");
-        return;
-    } else if (!isDiv5(W)) {
-        clearDisplay("⚠ 5 단위로 입력해주세요.\n 모든 설비는 5단위 전력을 소모합니다.");
-        return;
-    }
-
-    warning.innerText = "";
-
-    let page = Math.floor((W - 1) / 2560);
-    let inner = W % 2560;
-
-    // 구역B
-    gridB.innerHTML = "";
-
-    const pattern = patterns[page] || [];
-
-    const rowB = document.createElement('div');
-    rowB.className = 'row';
-
-    pattern.forEach(type => {
-        const icon = document.createElement('div');
-        icon.className = 'icon ' + type;
-        rowB.appendChild(icon);
-    });
-
-    gridB.appendChild(rowB);
-
-
-
-
-    // 구역A
-    if (inner === 0) {
-      gridA.innerHTML = "";
-    }
-    else{
-
-    const n = Math.floor(inner / 5);
-
-    const bin = toBinary9(n);
-    binaryText.innerText = `${W} → (${W} % 2560 = ${inner}) → ${n} → ${bin}`;
-
-    gridA.innerHTML = "";
-
-    const reversed = bin.split("").reverse();
-
-    reversed.forEach(bit => {
-        const row = document.createElement('div');
-        row.className = 'row';
-
-        const base = document.createElement('div');
-        base.className = 'icon base';
-        row.appendChild(base);
-
-        if (bit === '0') {
-            const A = document.createElement('div');
-            A.className = 'icon A';
-            row.appendChild(A);
-        } else {
-            const B = document.createElement('div');
-            B.className = 'icon B';
-
-            const A = document.createElement('div');
-            A.className = 'icon A r180';
-
-            row.appendChild(B);
-            row.appendChild(A);
+      function render(W, fromInput = false) {
+        if (W === 1557) {
+          clearDisplay("⚠ 헤이헤이헤이;;");
+          return;
+        }
+        if (!isValid(W)) {
+          clearDisplay("⚠ 5~64000 사이의 값만 입력 가능합니다.");
+          return;
+        } else if (!isDiv5(W)) {
+          clearDisplay("⚠ 5 단위로 입력해주세요.\n 모든 설비는 5단위 전력을 소모합니다.");
+          return;
         }
 
-        gridA.appendChild(row);
-    });
-  }
-}
+        warning.innerText = "";
 
+        let page = Math.floor((W - 1) / 2560);
+        let inner = W % 2560;
 
+        // 구역B
+        gridB.innerHTML = "";
 
-// 입력창 변경
-input.addEventListener('change', () => {
-    const W = parseInt(input.value);
-    render(W, true);
-});
+        const pattern = patterns[page] || [];
 
-// 초기 실행
-render(5);
-</script>
+        const rowB = document.createElement("div");
+        rowB.className = "row";
 
-</body>
+        pattern.forEach((type) => {
+          const icon = document.createElement("div");
+          icon.className = "icon " + type;
+          rowB.appendChild(icon);
+        });
+
+        gridB.appendChild(rowB);
+
+        // 구역A
+        if (inner === 0) {
+          gridA.innerHTML = "";
+        } else {
+          const n = Math.floor(inner / 5);
+
+          const bin = toBinary9(n);
+          binaryText.innerText = `${W} → (${W} % 2560 = ${inner}) → ${n} → ${bin}`;
+
+          gridA.innerHTML = "";
+
+          const reversed = bin.split("").reverse();
+
+          reversed.forEach((bit) => {
+            const row = document.createElement("div");
+            row.className = "row";
+
+            const base = document.createElement("div");
+            base.className = "icon base";
+            row.appendChild(base);
+
+            if (bit === "0") {
+              const A = document.createElement("div");
+              A.className = "icon A";
+              row.appendChild(A);
+            } else {
+              const B = document.createElement("div");
+              B.className = "icon B";
+
+              const A = document.createElement("div");
+              A.className = "icon A r180";
+
+              row.appendChild(B);
+              row.appendChild(A);
+            }
+
+            gridA.appendChild(row);
+          });
+        }
+      }
+
+      // 입력창 변경
+      input.addEventListener("change", () => {
+        const W = parseInt(input.value);
+        render(W, true);
+      });
+
+      // 초기 실행
+      render(5);
+    </script>
+  </body>
 </html>
