@@ -15,7 +15,7 @@ function clearDisplay(msg = "") {
   binaryText.innerText = "";
 }
 
-const patterns = [];
+const patterns = [["A"], ["A", "A"], ["A", "A", "A"]];
 
 function render(W, fromInput = false) {
   if (W === 1557) {
@@ -32,7 +32,7 @@ function render(W, fromInput = false) {
 
   warning.innerText = "";
 
-  let page = Math.floor((W - 1) / 2560);
+  let page = Math.floor(W / 2560);
   let inner = W % 2560;
 
   // 구역B
