@@ -1,3 +1,13 @@
 {
-  "key": [["A"], ["A", "A rot90"], ["B rot180", "A", "B"], [], ["A"]]
+  "key": [
+    [
+      ["blank", "Bbg"], 
+      ["blank", "Hrg", "Bbg r270"], 
+      ["blank", "Bbg", "Hrg r90", "Bbg r90"], 
+      ["blank"],
+      ["blank", "Bbg"], 
+      ["blank", "Hrg", "Bbg r270"], 
+      ["blank", "Bbg", "Hrg r90", "Bbg r90"]
+    ]
+  ]
 }

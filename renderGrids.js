@@ -53,19 +53,20 @@ function render(W, fromInput = false) {
 
   gridB.innerHTML = "";
 
-  const patterns = gridData.key;
-  const pattern = patterns[page] || [];
+  const patterns = gridData.key[page] || [];
 
-  const rowB = document.createElement("div");
-  rowB.className = "row";
+  patterns.forEach((rows) => {
+    const row = document.createElement("div");
+    row.className = "row";
 
-  pattern.forEach((type) => {
-    const icon = document.createElement("div");
-    icon.className = "icon " + type;
-    rowB.appendChild(icon);
+    rows.forEach((type) => {
+      const icon = document.createElement("div");
+      icon.className = "icon " + type;
+      row.appendChild(icon);
+    });
+
+    gridB.appendChild(row);
   });
-
-  gridB.appendChild(rowB);
 
   ///// 구역A
 
