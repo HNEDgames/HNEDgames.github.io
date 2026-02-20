@@ -11,11 +11,16 @@ const binaryText = document.getElementById("binary");
 const gridA = document.getElementById("gridA");
 const gridB = document.getElementById("gridB");
 const warning = document.getElementById("warning");
+const toggleBinary = document.getElementById("toggleBinary");
 
 ////////////////////////////// 유틸 함수
 
 function toBinary9(n) {
   return n.toString(2).padStart(9, "0");
+}
+
+function toQuinary(n) {
+  return n.toString(5).padStart(2, "0");
 }
 
 function clearDisplay(msg = "") {
@@ -78,7 +83,7 @@ function renderRowForGridA(n) {
   gridA.appendChild(row);
 }
 
-function render(W, fromInput = false) {
+function render(W) {
   if (W === 1557) {
     clearDisplay("⚠ 헤이헤이헤이");
     return;
@@ -123,10 +128,6 @@ function render(W, fromInput = false) {
   {
     const n = Math.floor(inner / 5);
     const bin = toBinary9(n);
-    binaryText.innerText = `
-    5분할 사용량: ${W} - 200 → [ ${realW} // 2560 = ${page} ] → ${page}₅\n
-    2분할 사용량: ${W} - 200 → [ ${realW} % 2560 = ${inner} ] → [ ÷5 = ${n} ] → ${bin}₂
-    `;
 
     gridA.innerHTML = "";
 
@@ -144,6 +145,18 @@ function render(W, fromInput = false) {
 
       renderRowForGridA(2);
     }
+    ///// 바이너리 텍스트 표기
+    {
+      if (toggleBinary.checked) {
+        binaryText.style.display = "block";
+        binaryText.innerText = `
+    5분할 사용량: ${W} - 200 → [ ${realW} // 2560 = ${page} ] → ${toQuinary(page)}₅
+    2분할 사용량: ${W} - 200 → [ ${realW} % 2560 = ${inner} ] → [ ÷5 = ${n} ] → ${bin}₂
+    `;
+      } else {
+        binaryText.style.display = "none";
+      }
+    }
   }
 }
 
@@ -151,9 +164,26 @@ function render(W, fromInput = false) {
 
 // 입력창 변경
 input.addEventListener("change", () => {
-  const W = parseInt(input.value);
-  render(W, true);
+  localStorage.setItem("inputPowerValue", parseInt(input.value));
+  render(parseInt(input.value));
+});
+
+// 바이너리 텍스트 토글
+toggleBinary.addEventListener("change", () => {
+  localStorage.setItem("showBinary", toggleBinary.checked);
+  render(parseInt(input.value));
 });
 
 // 초기 실행
-render(205);
+const savedIPV = localStorage.getItem("inputPowerValue");
+const savedSB = localStorage.getItem("showBinary");
+
+if (savedSB !== null) {
+  toggleBinary.checked = savedSB === "true";
+}
+if (savedIPV !== null) {
+  input.value = savedIPV;
+  render(savedIPV);
+} else {
+  render(205);
+}

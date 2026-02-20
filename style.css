@@ -70,6 +70,28 @@ input[type="range"] {
 }
 */
 
+/* 토글박스 */
+.toggle-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  background: rgba(20, 20, 20, 0.9);
+  padding: 10px 15px;
+  border-radius: 10px;
+
+  font-size: 14px;
+  color: #ccc;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 체크박스 스타일 */
+.toggle-box input {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
 input[type="range"]::-moz-range-thumb {
   width: 20px;
   height: 20px;

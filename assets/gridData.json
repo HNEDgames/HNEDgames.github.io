@@ -16,7 +16,7 @@
     ["Bbg", "Hrg", "Rail r180"],
     ["Bbg", "Brg", "Hrg r180"],
     ["Rail", "", "Bzg"],
-    ["Zhy"]
+    ["Rail", "Zhy"]
   ]
 
 }
