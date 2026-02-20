@@ -21,6 +21,66 @@
       <div class="grid" id="gridB"></div>
       <div class="grid" id="gridA"></div>
     </div>
+
+    <!-- 도움말 버튼 -->
+    <button id="helpBtn" class="help-btn">?</button>
+
+    <!-- 팝업 배경 -->
+    <div id="helpOverlay" class="overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <span>도움말</span>
+          <button id="closeHelp" class="close-btn">✕</button>
+        </div>
+
+        <div class="modal-body">
+          <p><b>사용 방법</b></p>
+          <ul>
+            <li>목표 전력량을 설정한다.</li>
+            <li>두 공정을 구현한다.</li>
+            <li>
+              <b><u>좌측공정 상단의 출력부를 우측공정 하단의 입력부에 연결</u></b
+              >한다.
+            </li>
+          </ul>
+
+          <p><b>각 아이콘의 의미</b></p>
+          <dl>
+            <dd class="row">
+              <div class="icon Zhy"></div>
+              <span> : 다시 수거하도록 연결해야한다. </span>
+            </dd>
+            <dd class="row">
+              <div class="icon Bzg"></div>
+              <span>
+                : <b><u>하나의</u></b> 발전기를 향해 연결해야한다.
+              </span>
+            </dd>
+            <dd class="row">
+              <div class="icon Bbg"></div>
+              <span> : 레일 분배기를 방향에 유의하며 레일 위에 설치하면 된다. </span>
+            </dd>
+            <dd class="row">
+              <div class="icon Hrg"></div>
+              <span> : 레일 합류기를 방향에 유의하며 레일 위에 설치하면 된다. </span>
+            </dd>
+            <dd class="row">
+              <div class="icon Brg"></div>
+              <span> : 레일 브릿지를 레일 위에 설치하면 된다. </span>
+            </dd>
+            <dd class="row">
+              <div class="icon Rail"></div>
+              <span> : 레일 가이드라인이며, 입력부 및 출력부이기도 하다. </span>
+            </dd>
+          </dl>
+
+          <p><b>참고사항</b></p>
+          <div>명확한 표기를 위해 확장된 공정이므로, 공정 축소가 가능하다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 계산식 토글 -->
     <div class="toggle-box">
       <label>
         <input type="checkbox" id="toggleBinary" unchecked />

@@ -11,7 +11,12 @@ const binaryText = document.getElementById("binary");
 const gridA = document.getElementById("gridA");
 const gridB = document.getElementById("gridB");
 const warning = document.getElementById("warning");
+
 const toggleBinary = document.getElementById("toggleBinary");
+
+const helpBtn = document.getElementById("helpBtn");
+const helpOverlay = document.getElementById("helpOverlay");
+const closeHelp = document.getElementById("closeHelp");
 
 ////////////////////////////// 유틸 함수
 
@@ -38,7 +43,7 @@ function editSectorBForPage(page, inner) {
     patterns[1][0] = "Bzg";
   }
   if (page % 5 > 1) {
-    patterns[1][2] = "Bzg";
+    patterns[1][3] = "Bzg";
   }
   if (page % 5 > 2) {
     patterns[3][4] = "Bzg";
@@ -51,7 +56,7 @@ function editSectorBForPage(page, inner) {
     patterns[7][0] = "Bzg";
   }
   if (idx % 5 > 1) {
-    patterns[7][2] = "Bzg";
+    patterns[7][3] = "Bzg";
   }
   if (idx % 5 > 2) {
     patterns[9][4] = "Bzg";
@@ -172,6 +177,23 @@ input.addEventListener("change", () => {
 toggleBinary.addEventListener("change", () => {
   localStorage.setItem("showBinary", toggleBinary.checked);
   render(parseInt(input.value));
+});
+
+// 열기 버튼
+helpBtn.addEventListener("click", () => {
+  helpOverlay.classList.add("show");
+});
+
+// 닫기 버튼
+closeHelp.addEventListener("click", () => {
+  helpOverlay.classList.remove("show");
+});
+
+// 배경 클릭 시 닫기
+helpOverlay.addEventListener("click", (e) => {
+  if (e.target === helpOverlay) {
+    helpOverlay.classList.remove("show");
+  }
 });
 
 // 초기 실행

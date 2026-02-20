@@ -1,13 +1,13 @@
 {
   "sectorB": [
       ["", "Rail"],
-      ["Zhy", "Bbg", "Zhy"], 
+      ["Zhy", "Bbg", "Rail r90", "Zhy"], 
       ["", "Hrg", "Bbg r270", "RailR"], 
       ["", "Bbg", "Hrg r90", "Bbg r90", "Zhy"],
       ["", "Rail", "", "Zhy"],
       ["", "Rail"],
       ["", "Rail"],
-      ["Zhy", "Bbg", "Zhy"], 
+      ["Zhy", "Bbg", "Rail r90", "Zhy"], 
       ["", "Hrg", "Bbg r270", "RailR"], 
       ["", "Bbg", "Hrg r90", "Bbg r90", "Zhy"],
       ["", "Rail", "", "Zhy"]
@@ -16,7 +16,7 @@
     ["Bbg", "Hrg", "Rail r180"],
     ["Bbg", "Brg", "Hrg r180"],
     ["Rail", "", "Bzg"],
-    ["Rail", "Zhy"]
+    ["RailRR", "Zhy"]
   ]
 
 }
