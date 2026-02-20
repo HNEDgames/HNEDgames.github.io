@@ -27,6 +27,20 @@ function clearDisplay(msg = "") {
 
 ////////////////////////////// 렌더링 함수
 
+function renderRowForGridA(n) {
+  const patterns = gridData.sectorA[n];
+
+  const row = document.createElement("div");
+  row.className = "row";
+  patterns.forEach((type) => {
+    const icon = document.createElement("div");
+    icon.className = "icon " + type;
+    row.appendChild(icon);
+  });
+
+  gridA.appendChild(row);
+}
+
 function render(W, fromInput = false) {
   if (W === 1557) {
     clearDisplay("⚠ 헤이헤이헤이");
@@ -50,62 +64,47 @@ function render(W, fromInput = false) {
   let inner = realW % 2560;
 
   ///// 구역B
+  {
+    gridB.innerHTML = "";
 
-  gridB.innerHTML = "";
+    const patterns = gridData.sectorB[page] || [];
 
-  const patterns = gridData.key[page] || [];
-
-  patterns.forEach((rows) => {
-    const row = document.createElement("div");
-    row.className = "row";
-
-    rows.forEach((type) => {
-      const icon = document.createElement("div");
-      icon.className = "icon " + type;
-      row.appendChild(icon);
-    });
-
-    gridB.appendChild(row);
-  });
-
-  ///// 구역A
-
-  const n = Math.floor(inner / 5);
-  const bin = toBinary9(n);
-  binaryText.innerText = `${W + 200} - 200 → [ ${realW} % 2560 = ${inner} ] → [ ÷5 = ${n} ] → ${bin}₂`;
-
-  if (inner === 0) {
-    gridA.innerHTML = "";
-  } else {
-    gridA.innerHTML = "";
-
-    const reversed = bin.split("").reverse();
-
-    reversed.forEach((bit) => {
+    patterns.forEach((rows) => {
       const row = document.createElement("div");
       row.className = "row";
 
-      const base = document.createElement("div");
-      base.className = "icon Bbg";
-      row.appendChild(base);
+      rows.forEach((type) => {
+        const icon = document.createElement("div");
+        icon.className = "icon " + type;
+        row.appendChild(icon);
+      });
 
-      if (bit === "0") {
-        const A = document.createElement("div");
-        A.className = "icon Hrg";
-        row.appendChild(A);
-      } else {
-        const B = document.createElement("div");
-        B.className = "icon Brg";
-
-        const A = document.createElement("div");
-        A.className = "icon Hrg r180";
-
-        row.appendChild(B);
-        row.appendChild(A);
-      }
-
-      gridA.appendChild(row);
+      gridB.appendChild(row);
     });
+  }
+  ///// 구역A
+  {
+    const n = Math.floor(inner / 5);
+    const bin = toBinary9(n);
+    binaryText.innerText = `${W + 200} - 200 → [ ${realW} % 2560 = ${inner} ] → [ ÷5 = ${n} ] → ${bin}₂`;
+
+    gridA.innerHTML = "";
+
+    renderRowForGridA(3);
+
+    if (inner !== 0) {
+      const reversed = bin.split("").reverse();
+
+      reversed.forEach((bit) => {
+        if (bit === "0") {
+          renderRowForGridA(0);
+        } else {
+          renderRowForGridA(1);
+        }
+      });
+
+      renderRowForGridA(2);
+    }
   }
 }
 

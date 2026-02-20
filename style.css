@@ -112,6 +112,7 @@ input[type="range"] {
 }
 
 .icon {
+  background-color: transparent;
   width: 40px;
   height: 40px;
 }
@@ -124,6 +125,18 @@ input[type="range"] {
 }
 .Bbg {
   background: url("assets/분배기.png") center/contain no-repeat;
+}
+.Bzg {
+  background: url("assets/발전기.png") center/contain no-repeat;
+}
+.Zhy {
+  background: url("assets/재활용.png") center/contain no-repeat;
+}
+.Rail {
+  background: url("assets/레일.png") center/contain no-repeat;
+}
+.Blank {
+  background: url("assets/blank.png") center/contain no-repeat;
 }
 
 .r90 {
