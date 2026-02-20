@@ -135,6 +135,9 @@ input[type="range"] {
 .Rail {
   background: url("assets/레일.png") center/contain no-repeat;
 }
+.RailR {
+  background: url("assets/꺾인레일.png") center/contain no-repeat;
+}
 .Blank {
   background: url("assets/blank.png") center/contain no-repeat;
 }
