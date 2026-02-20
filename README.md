@@ -30,4 +30,4 @@
 
 ### 물품 5등분 라인 세부정보
 
-![alt text](assets\readme\image.png)
+![alt text](./assets/readme/image.png)
