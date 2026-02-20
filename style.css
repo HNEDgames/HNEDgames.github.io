@@ -34,7 +34,6 @@ h1 {
   width: 160px;
   padding: 10px 15px;
   font-size: 20px;
-  padding-left: 30px;
   text-align: center;
 
   color: white;
@@ -51,6 +50,13 @@ h1 {
 #valueInput:focus {
   border-color: #00c8ff;
   box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+}
+
+/* 숫자 입력창의 스핀 버튼 제거 */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* 슬라이더(미사용) */
@@ -110,14 +116,14 @@ input[type="range"] {
   height: 40px;
 }
 
-.A {
-  background: url("assets/A.png") center/contain no-repeat;
+.Hrg {
+  background: url("assets/합류기.png") center/contain no-repeat;
 }
-.B {
-  background: url("assets/B.png") center/contain no-repeat;
+.Brg {
+  background: url("assets/브릿지.png") center/contain no-repeat;
 }
-.base {
-  background: url("assets/base.png") center/contain no-repeat;
+.Bbg {
+  background: url("assets/분배기.png") center/contain no-repeat;
 }
 
 .r90 {
