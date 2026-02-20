@@ -20,8 +20,8 @@ const closeHelp = document.getElementById("closeHelp");
 
 ////////////////////////////// 유틸 함수
 
-function toBinary9(n) {
-  return n.toString(2).padStart(9, "0");
+function toBinary8(n) {
+  return n.toString(2).padStart(8, "0");
 }
 
 function toQuinary(n) {
@@ -132,7 +132,7 @@ function render(W) {
   ///// 구역A
   {
     const n = Math.floor(inner / 5);
-    const bin = toBinary9(n);
+    const bin = toBinary8(n);
 
     gridA.innerHTML = "";
 
