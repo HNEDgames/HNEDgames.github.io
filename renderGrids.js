@@ -28,8 +28,8 @@ function render(W, fromInput = false) {
     clearDisplay("⚠ 헤이헤이헤이");
     return;
   }
-  if (W < 5 || W > 64000) {
-    clearDisplay("⚠ 5~64000 사이의 값만 입력 가능합니다.");
+  if (W < 205 || W > 64000) {
+    clearDisplay("⚠ 205~64000 사이의 값만 입력 가능합니다.");
     return;
   } else if (W % 5 !== 0) {
     clearDisplay("⚠ 5 단위로 입력해주세요.\n 모든 설비는 5단위 전력을 소모합니다.");
@@ -106,4 +106,4 @@ input.addEventListener("change", () => {
 });
 
 // 초기 실행
-render(5);
+render(205);
