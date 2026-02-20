@@ -25,25 +25,38 @@ function clearDisplay(msg = "") {
   binaryText.innerText = "";
 }
 
-function editSectorBForPage(page) {
+function editSectorBForPage(page, inner) {
   let patterns = JSON.parse(JSON.stringify(gridData.sectorB)); // 깊은 복사
-  let idx = page;
+  const idx = Math.floor(page / 5);
 
-  if (idx > 4) {
-    patterns = patterns.slice(0, 5);
-    ++idx;
-  }
-  if (idx % 5 > 0) {
+  if (page % 5 > 0) {
     patterns[1][0] = "Bzg";
   }
-  if (idx % 5 > 1) {
+  if (page % 5 > 1) {
     patterns[1][2] = "Bzg";
   }
-  if (idx % 5 > 2) {
+  if (page % 5 > 2) {
     patterns[3][4] = "Bzg";
   }
-  if (idx % 5 > 3) {
+  if (page % 5 > 3) {
     patterns[4][3] = "Bzg";
+  }
+
+  if (idx % 5 > 0) {
+    patterns[7][0] = "Bzg";
+  }
+  if (idx % 5 > 1) {
+    patterns[7][2] = "Bzg";
+  }
+  if (idx % 5 > 2) {
+    patterns[9][4] = "Bzg";
+  }
+  if (idx % 5 > 3) {
+    patterns[10][3] = "Bzg";
+  }
+
+  if (inner === 0) {
+    patterns = patterns.slice(6, 11);
   }
 
   return patterns;
@@ -72,7 +85,7 @@ function render(W, fromInput = false) {
   } else if (W <= 200) {
     clearDisplay("⚠ 배터리가 필요하지 않습니다.");
     return;
-  } else if (W > 64000) {
+  } else if (W > 64200) {
     clearDisplay("⚠ 64000 이하의 전력량만 분할 가능합니다.");
     return;
   } else if (W % 5 !== 0) {
@@ -91,7 +104,7 @@ function render(W, fromInput = false) {
   {
     gridB.innerHTML = "";
 
-    let patterns = editSectorBForPage(page);
+    let patterns = editSectorBForPage(page, inner);
 
     patterns.forEach((rows) => {
       const row = document.createElement("div");
@@ -110,7 +123,10 @@ function render(W, fromInput = false) {
   {
     const n = Math.floor(inner / 5);
     const bin = toBinary9(n);
-    binaryText.innerText = `${W} - 200 → [ ${realW} % 2560 = ${inner} ] → [ ÷5 = ${n} ] → ${bin}₂`;
+    binaryText.innerText = `
+    5분할 사용량: ${W} - 200 → [ ${realW} // 2560 = ${page} ] → ${page}₅\n
+    2분할 사용량: ${W} - 200 → [ ${realW} % 2560 = ${inner} ] → [ ÷5 = ${n} ] → ${bin}₂
+    `;
 
     gridA.innerHTML = "";
 
