@@ -25,6 +25,30 @@ function clearDisplay(msg = "") {
   binaryText.innerText = "";
 }
 
+function editSectorBForPage(page) {
+  let patterns = JSON.parse(JSON.stringify(gridData.sectorB)); // 깊은 복사
+  let idx = page;
+
+  if (idx > 4) {
+    patterns = patterns.slice(0, 5);
+    ++idx;
+  }
+  if (idx % 5 > 0) {
+    patterns[1][0] = "Bzg";
+  }
+  if (idx % 5 > 1) {
+    patterns[1][2] = "Bzg";
+  }
+  if (idx % 5 > 2) {
+    patterns[3][4] = "Bzg";
+  }
+  if (idx % 5 > 3) {
+    patterns[4][3] = "Bzg";
+  }
+
+  return patterns;
+}
+
 ////////////////////////////// 렌더링 함수
 
 function renderRowForGridA(n) {
@@ -67,7 +91,7 @@ function render(W, fromInput = false) {
   {
     gridB.innerHTML = "";
 
-    const patterns = gridData.sectorB[page] || [];
+    let patterns = editSectorBForPage(page);
 
     patterns.forEach((rows) => {
       const row = document.createElement("div");
@@ -86,13 +110,12 @@ function render(W, fromInput = false) {
   {
     const n = Math.floor(inner / 5);
     const bin = toBinary9(n);
-    binaryText.innerText = `${W + 200} - 200 → [ ${realW} % 2560 = ${inner} ] → [ ÷5 = ${n} ] → ${bin}₂`;
+    binaryText.innerText = `${W} - 200 → [ ${realW} % 2560 = ${inner} ] → [ ÷5 = ${n} ] → ${bin}₂`;
 
     gridA.innerHTML = "";
 
-    renderRowForGridA(3);
-
     if (inner !== 0) {
+      renderRowForGridA(3);
       const reversed = bin.split("").reverse();
 
       reversed.forEach((bit) => {

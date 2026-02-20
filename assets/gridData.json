@@ -1,6 +1,5 @@
 {
   "sectorB": [
-    [
       ["", "Rail"],
       ["Zhy", "Bbg", "Zhy"], 
       ["", "Hrg", "Bbg r270"], 
@@ -12,7 +11,6 @@
       ["", "Hrg", "Bbg r270"], 
       ["", "Bbg", "Hrg r90", "Bbg r90", "Zhy"],
       ["", "Rail", "", "Zhy"]
-    ]
   ],
   "sectorA":[
     ["Bbg", "Hrg", "Rail r180"],
