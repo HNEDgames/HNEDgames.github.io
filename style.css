@@ -1,3 +1,4 @@
+html,
 body {
   background: #111;
   color: white;
@@ -5,7 +6,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 h1 {
@@ -25,8 +31,64 @@ h1 {
   display: flex;
   gap: 90px;
   margin-top: 20px;
-
   align-items: center;
+}
+
+/* 탭 바 */
+.tabs {
+  margin: 20px 0;
+  height: 40px;
+  display: flex;
+  gap: 10px;
+}
+
+/* 탭 버튼 */
+.tab {
+  padding: 10px 20px;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tab:hover {
+  background: #333;
+}
+
+/* 활성 탭 */
+.tab.active {
+  background: #00c8ff;
+  color: black;
+}
+
+.pages {
+  width: 100%;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 페이지 애니메이션 */
+.page {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.2s;
+}
+
+.page.active {
+  display: block;
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* 입력창 스타일 */

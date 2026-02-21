@@ -7,19 +7,52 @@
   </head>
 
   <body>
-    <h1>엔드필드 무릉 전력 5단위 계산기</h1>
-
-    <h3>목표 전력량</h3>
-    <div class="controls">
-      <input type="number" id="valueInput" value="205" step="5" min="205" max="64200" />
+    <!-- 탭 -->
+    <div class="tabs">
+      <button class="tab active" data-tab="calc">계산기</button>
+      <button class="tab" data-tab="test">테스트</button>
+      <button class="tab" data-tab="settings">설정</button>
     </div>
 
-    <div id="binary"></div>
-    <div class="warning" id="warning"></div>
+    <div class="pages">
+      <div class="page active" id="calc">
+        <h1>엔드필드 무릉 전력 5단위 계산기</h1>
 
-    <div class="container">
-      <div class="grid" id="gridB"></div>
-      <div class="grid" id="gridA"></div>
+        <h3>목표 전력량</h3>
+        <div class="controls">
+          <input type="number" id="valueInput" value="205" step="5" min="205" max="64200" />
+        </div>
+
+        <div id="binary"></div>
+        <div class="warning" id="warning"></div>
+
+        <div class="container">
+          <div class="grid" id="gridB"></div>
+          <div class="grid" id="gridA"></div>
+        </div>
+      </div>
+
+      <div class="page" id="test">
+        <h2>테스트</h2>
+        <p>테스트용 탭 123</p>
+      </div>
+
+      <div class="page" id="settings">
+        <h2>설정</h2>
+        <br />
+        <label>
+          <input type="checkbox" id="toggleBinary" />
+          Binary 표시
+        </label>
+      </div>
+    </div>
+
+    <!-- 계산식 토글 -->
+    <div class="toggle-box">
+      <label>
+        <input type="checkbox" id="toggleBinary" unchecked />
+        Binary 계산식 표기
+      </label>
     </div>
 
     <!-- 도움말 버튼 -->
@@ -78,14 +111,6 @@
           <div>명확한 표기를 위해 확장된 공정이므로, 공정 축소가 가능하다.</div>
         </div>
       </div>
-    </div>
-
-    <!-- 계산식 토글 -->
-    <div class="toggle-box">
-      <label>
-        <input type="checkbox" id="toggleBinary" unchecked />
-        Binary 계산식 표기
-      </label>
     </div>
 
     <script type="module" src="./renderGrids.js"></script>
