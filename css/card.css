@@ -1,0 +1,68 @@
+:root {
+  --icon-size: 25px;
+  --cols: 9;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 20px;
+}
+
+/* 카드 */
+.card {
+  width: 100%;
+  height: 100%;
+  background: #1e1e1e;
+  border-radius: 16px;
+  padding: 12px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  /* 애니메이션 초기 상태 */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* 등장 애니메이션 */
+.card.show {
+  animation: fadeUp 0.25s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 제목 */
+.card-title {
+  width: calc(var(--icon-size) * var(--cols));
+  word-break: break-word;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* 아이콘 영역 */
+.card-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--icon-size));
+  grid-auto-rows: var(--icon-size);
+  gap: 2px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* 아이콘 */
+.icon {
+  background-color: transparent;
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}

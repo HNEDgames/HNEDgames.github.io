@@ -334,6 +334,12 @@ input[type="range"] {
 .Blank {
   background: url("../assets/blank.png") center/contain no-repeat;
 }
+.A {
+  background: url("../assets/test/A.png") center/contain no-repeat;
+}
+.B {
+  background: url("../assets/test/B.png") center/contain no-repeat;
+}
 
 .r90 {
   transform: rotate(90deg);
