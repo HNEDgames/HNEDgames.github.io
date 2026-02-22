@@ -1,10 +1,11 @@
-import gridData from "./assets/gridData.json" with { type: "json" };
+import gridData from "../assets/gridData.json" with { type: "json" };
 
 // fetch("./assets/gridData.json")
 //   .then((res) => res.json())
 //   .then((data) => {
 //     console.log(data);
 //   });
+const toggleBinary = document.getElementById("toggleBinary");
 
 const input = document.getElementById("valueInput");
 const binaryText = document.getElementById("binary");
@@ -12,14 +13,9 @@ const gridA = document.getElementById("gridA");
 const gridB = document.getElementById("gridB");
 const warning = document.getElementById("warning");
 
-const toggleBinary = document.getElementById("toggleBinary");
-
 const helpBtn = document.getElementById("helpBtn");
 const helpOverlay = document.getElementById("helpOverlay");
 const closeHelp = document.getElementById("closeHelp");
-
-const tabs = document.querySelectorAll(".tab");
-const pages = document.querySelectorAll(".page");
 
 ////////////////////////////// 유틸 함수
 
@@ -170,23 +166,6 @@ function render(W) {
 
 ////////////////////////////// 리스너 추가
 
-// 탭 클릭
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const target = tab.dataset.tab;
-
-    tabs.forEach((t) => t.classList.remove("active"));
-    tab.classList.add("active");
-
-    pages.forEach((p) => {
-      p.classList.remove("active");
-      if (p.id === target) {
-        p.classList.add("active");
-      }
-    });
-  });
-});
-
 // 입력창 변경
 input.addEventListener("change", () => {
   localStorage.setItem("inputPowerValue", parseInt(input.value));
@@ -199,6 +178,7 @@ toggleBinary.addEventListener("change", () => {
   render(parseInt(input.value));
 });
 
+///// 도움말
 // 열기 버튼
 helpBtn.addEventListener("click", () => {
   helpOverlay.classList.add("show");

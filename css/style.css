@@ -64,6 +64,7 @@ h1 {
   color: black;
 }
 
+/* 페이지 컨테이너 */
 .pages {
   width: 100%;
   flex: 1;
@@ -71,12 +72,13 @@ h1 {
   overflow: hidden;
 }
 
-/* 페이지 애니메이션 */
-.page {
-  display: none;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: 0.2s;
+/* 탭 변환으로 생성되는 오브젝트 변환 */
+object {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
 }
 
 .page.active {
@@ -306,31 +308,31 @@ input[type="range"] {
 }
 
 .Hrg {
-  background: url("assets/합류기.png") center/contain no-repeat;
+  background: url("../assets/합류기.png") center/contain no-repeat;
 }
 .Brg {
-  background: url("assets/브릿지.png") center/contain no-repeat;
+  background: url("../assets/브릿지.png") center/contain no-repeat;
 }
 .Bbg {
-  background: url("assets/분배기.png") center/contain no-repeat;
+  background: url("../assets/분배기.png") center/contain no-repeat;
 }
 .Bzg {
-  background: url("assets/발전기.png") center/contain no-repeat;
+  background: url("../assets/발전기.png") center/contain no-repeat;
 }
 .Zhy {
-  background: url("assets/재활용.png") center/contain no-repeat;
+  background: url("../assets/재활용.png") center/contain no-repeat;
 }
 .Rail {
-  background: url("assets/레일.png") center/contain no-repeat;
+  background: url("../assets/레일.png") center/contain no-repeat;
 }
 .RailR {
-  background: url("assets/꺾인레일.png") center/contain no-repeat;
+  background: url("../assets/꺾인레일.png") center/contain no-repeat;
 }
 .RailRR {
-  background: url("assets/꺾인레일R.png") center/contain no-repeat;
+  background: url("../assets/꺾인레일R.png") center/contain no-repeat;
 }
 .Blank {
-  background: url("assets/blank.png") center/contain no-repeat;
+  background: url("../assets/blank.png") center/contain no-repeat;
 }
 
 .r90 {
