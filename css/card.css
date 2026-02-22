@@ -5,7 +5,7 @@
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding: 20px;
 }
@@ -62,7 +62,7 @@
 /* 아이콘 */
 .icon {
   background-color: transparent;
-  width: 25px;
-  height: 25px;
+  width: var(--icon-size);
+  height: var(--icon-size);
   object-fit: contain;
 }
