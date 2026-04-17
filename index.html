@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>엔드필드 전력 계산기</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../css/sidebar.css" />
+    <link rel="stylesheet" href="../css/coloring.css" />
   </head>
 
   <body>
@@ -13,10 +15,28 @@
       <button class="tab" data-tab="separate">분배기</button>
     </div>
 
+    <!-- 햄버거 버튼 -->
+    <button id="menuBtn" class="menu-btn">☰</button>
+
+    <!-- 사이드바 -->
+    <div id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <span>메뉴</span>
+      </div>
+
+      <div class="sidebar-content">
+        <button class="side-tab active" data-page="index">엔드필드</button>
+      </div>
+    </div>
+
+    <!-- 배경 어둡게 -->
+    <div id="overlay" class="overlay"></div>
+
     <div class="pages" id="page">
       <object type="text/html" data="./html/wcalc.html"></object>
     </div>
 
     <script type="module" src="../js/switchTab.js"></script>
+    <script type="module" src="../js/sidebar.js"></script>
   </body>
 </html>

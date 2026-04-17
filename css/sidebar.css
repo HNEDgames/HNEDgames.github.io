@@ -1,0 +1,94 @@
+* {
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    font 0.2s;
+}
+
+/* 햄버거 버튼 */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+
+  width: 44px;
+  height: 44px;
+
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* 사이드바 */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 250px;
+  height: 100%;
+
+  background: #1a1a1a;
+  color: white;
+
+  transform: translateX(-100%);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  z-index: 1001;
+}
+
+/* 열림 상태 */
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* 헤더 */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #333;
+
+  font: bold 1.4em sans-serif;
+}
+
+/* 탭 */
+.side-tab {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #ccc;
+  text-align: left;
+  cursor: pointer;
+
+  font: 1.1em sans-serif;
+}
+
+.side-tab.active {
+  color: black;
+}
+
+/* 오버레이 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s;
+
+  z-index: 1000;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}

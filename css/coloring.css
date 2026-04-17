@@ -1,0 +1,41 @@
+:root {
+  --theme-color: #ffcc00;
+}
+
+.menu-btn {
+  background: var(--theme-color);
+}
+
+.side-tab.active {
+  background: var(--theme-color);
+  color: black;
+}
+
+.side-tab:hover {
+  background: var(--theme-color);
+  color: black;
+  font: bold 1.1em sans-serif;
+
+  opacity: 1;
+}
+
+button.primary {
+  background: var(--theme-color);
+}
+
+.tab.active {
+  background: var(--theme-color);
+  color: black;
+}
+
+#valueInput:focus {
+  border-color: var(--theme-color);
+}
+
+.help-btn {
+  background: var(--theme-color);
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #00c8ff;
+}

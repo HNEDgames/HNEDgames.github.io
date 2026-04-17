@@ -1,7 +1,7 @@
 
 [  
   {
-    "title": "5분할",
+    "title": "5분할(5x5)",
     "grid": [
       ["","check", "", "", "", "", "", "", ""],
       ["check","hrg", "Rail r90", "check", "", "", "", "", ""],
@@ -11,17 +11,17 @@
     ]
   },
   {
-    "title": "7분할(2배수)",
+    "title": "7분할-2배수 (9x4)",
     "grid": [
       ["","", "", "", "", "", "", "", ""],
       ["","", "check","", "",  "", "check", "", ""],
       ["check", "rail r270", "bbg","", "",  "", "bbg", "rail r90", "check"],
       ["check", "bbg r270", "bbg r270", "hrg r270", "bbg", "hrg r90","bbg r90", "bbg r90", "check"],
-      ["","check","",  "railRR r270", "rail r270", "bbg r270",  "rail r270", "railRR r180", ""]
+      ["","check","",  "railRR r270", "brg r270", "bbg r270",  "rail r270", "railRR r180", ""]
     ]
   },
     {
-    "title": "7분할(3배수)",
+    "title": "7분할-3배수 (7x6)",
     "grid": [
       ["","", "", "", "check", "", "", "", ""],
       ["","", "railRR", "hrg r180", "bbg", "check", "", "", ""],
