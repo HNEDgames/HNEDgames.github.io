@@ -1,3 +1,5 @@
+import cardData from "../assets/cardData.json" with { type: "json" };
+
 const DELAY_NUM = 30; // 카드 등장 딜레이 (ms)
 
 function createCard(title, gridData) {
@@ -39,46 +41,6 @@ function renderCards(dataList) {
   });
 }
 
-const sampleData = [
-  {
-    title: "아이콘배치 1",
-    grid: [
-      ["A", "A", "B", "A", "A", "B", "A", "A", "A"],
-      ["A", "A", "A", "A", "A", "A", "A", "A", "A"],
-    ],
-  },
-  {
-    title: "아이콘배치 2",
-    grid: [
-      ["B", "A", "B", "A", "B", "A", "B", "A", "B"],
-      ["A", "A", "A", "A", "A", "A", "A", "A", "A"],
-    ],
-  },
-  {
-    title: "아이콘배치 3",
-    grid: [
-      ["B", "A", "B", "A", "B", "A", "B", "A", "B"],
-      ["A", "A", "A", "A", "A", "A", "A", "A", "A"],
-      ["A", "A", "A", "A", "A", "A", "A", "A", "A"],
-    ],
-  },
-  {
-    title: "테스트글자길이테스트글자길이테스트글자길이",
-    grid: [
-      ["B", "A", "B", "A", "B", "A", "B", "A", "B"],
-      ["A", "A", "A", "A", "A", "A", "A", "A", "A"],
-      ["A", "A", "A", "A", "A", "A", "A", "A", "A"],
-    ],
-  },
-
-  {
-    title: "테스트글자길이테스트글자길이테스트글자길이",
-    grid: [
-      ["B", "A", "B", "A", "B", "A", "B", "A", "B"],
-      ["A", "A", "A", "A", "A", "A", "A", "A", "A"],
-      ["A", "A", "A", "A", "A", "A", "A", "A", "A"],
-    ],
-  },
-];
+const sampleData = JSON.parse(JSON.stringify(cardData)); // 깊은 복사
 
 renderCards(sampleData);

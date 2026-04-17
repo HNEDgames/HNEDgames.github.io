@@ -334,6 +334,9 @@ input[type="range"] {
 .Blank {
   background: url("../assets/blank.png") center/contain no-repeat;
 }
+.Check {
+  background: url("../assets/check.png") center/contain no-repeat;
+}
 .A {
   background: url("../assets/test/A.png") center/contain no-repeat;
 }
